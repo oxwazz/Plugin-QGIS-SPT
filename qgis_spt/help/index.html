@@ -1,0 +1,580 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Plugin QGIS SPT &#8212; Plugin QGIS SPT  documentation</title>
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <link rel="search" title="Search" href="search.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          </li>
+        <li class="nav-item nav-item-0"><a href="#">Plugin QGIS SPT  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="plugin-qgis-spt">
+<h1>Plugin QGIS SPT<a class="headerlink" href="#plugin-qgis-spt" title="Permalink to this headline">¶</a></h1>
+<img alt="images/Logo.png" src="images/Logo.png" />
+</div>
+<div class="section" id="concepts">
+<h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
+<p>Plugin QGIS SPT provides you for estimating land surface temperature (LST) using split-window algorithm (SWA) Qin for Landsat 8.</p>
+<p>The steps to using Plugin QGIS SPT are fairly simple:</p>
+<ol class="arabic simple">
+<li><p>Open the plugin QGIS SPT from within QGIS.</p></li>
+<li><p>Fill out the required value and input data band obtained from landsat 8 satellite imagery.</p></li>
+<li><p>If you have the different value, you can change the default value from advance setting.</p></li>
+<li><p>Calculate LST.</p></li>
+</ol>
+</div>
+<div class="section" id="running-plugin-qgis-spt">
+<h1>Running Plugin QGIS SPT<a class="headerlink" href="#running-plugin-qgis-spt" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tab-parameter">
+<h2>Tab Parameter<a class="headerlink" href="#tab-parameter" title="Permalink to this headline">¶</a></h2>
+<p>General Setting:</p>
+<img alt="images/Parameter.png" src="images/Parameter.png" />
+<dl class="simple">
+<dt><strong>Data Satellite</strong></dt><dd><p>Data Satellite is data with values ​​obtained from the metadata used for calculate LST
+, see <a class="reference internal" href="#table-metadata-landsat-8-title"><span class="std std-ref">Table Metadata Landsat 8</span></a>.</p>
+</dd>
+<dt><strong>Output Temp.</strong></dt><dd><p>Output temperature is to determine the external value of the resulting temperature
+, see <a class="reference internal" href="#temperature-conversion-title"><span class="std std-ref">Temperature Conversion</span></a>.</p>
+</dd>
+<dt><strong>Range Temp.</strong></dt><dd><p>Range temperature is the average value of air temperature in the area
+, see <a class="reference internal" href="#table-regression-coefficients-title"><span class="std std-ref">Table Regression Coefficients</span></a>.</p>
+</dd>
+<dt><strong>Tot. Water Vapor</strong></dt><dd><p>Total water vapor is the value of total water vapor content
+, see <a class="reference internal" href="#total-water-vapor-content-title"><span class="std std-ref">Total Water Vapor Content</span></a>.</p>
+</dd>
+<dt><strong>Band Red</strong></dt><dd><p>Band red is data from landsat 8 satellite imagery
+, see <a class="reference internal" href="#table-band-red-nir-tir-1-and-tir-2-landsat-8-title"><span class="std std-ref">Table band Red, NIR, TIR-1, and TIR-2 Landsat 8</span></a>.</p>
+</dd>
+<dt><strong>Band NIR</strong></dt><dd><p>Band near-infrared (NIR) is data from landsat 8 satellite imagery
+, see <a class="reference internal" href="#table-band-red-nir-tir-1-and-tir-2-landsat-8-title"><span class="std std-ref">Table band Red, NIR, TIR-1, and TIR-2 Landsat 8</span></a>.</p>
+</dd>
+<dt><strong>Band TIR-1</strong></dt><dd><p>Band thermal-infrared 1 (TIR-1) is data from landsat 8 satellite imagery
+, see <a class="reference internal" href="#table-band-red-nir-tir-1-and-tir-2-landsat-8-title"><span class="std std-ref">Table band Red, NIR, TIR-1, and TIR-2 Landsat 8</span></a>.</p>
+</dd>
+<dt><strong>Band TIR-2</strong></dt><dd><p>Band thermal-infrared 2 (TIR-2) is data from landsat 8 satellite imagery
+, see <a class="reference internal" href="#table-band-red-nir-tir-1-and-tir-2-landsat-8-title"><span class="std std-ref">Table band Red, NIR, TIR-1, and TIR-2 Landsat 8</span></a>.</p>
+</dd>
+<dt><strong>Save Output</strong></dt><dd><p>Save output is to determine the external directory of the data LST.</p>
+</dd>
+</dl>
+<p>Advance Setting:</p>
+<img alt="images/ParameterAdv.png" src="images/ParameterAdv.png" />
+<dl class="simple">
+<dt><strong>At-Transmittance</strong></dt><dd><p>This is the value of atmospheric transmittance
+, see <a class="reference internal" href="#attrans-title"><span class="std std-ref">Atmospheric Transmittance</span></a>.</p>
+</dd>
+<dt><strong>NDVI Soil</strong></dt><dd><p>This is the value of NDVI soil
+, see <a class="reference internal" href="#table-ndvi-soil-and-vegetation-title"><span class="std std-ref">Table NDVI Soil and Vegetation</span></a>.</p>
+</dd>
+<dt><strong>NDVI Vegetation</strong></dt><dd><p>This is the value of NDVI vegetation
+, see <a class="reference internal" href="#table-ndvi-soil-and-vegetation-title"><span class="std std-ref">Table NDVI Soil and Vegetation</span></a>.</p>
+</dd>
+<dt><strong>TIR-1 Emis. Soil</strong></dt><dd><p>This is the value of TIR-1 emissivity soil
+, see <a class="reference internal" href="#table-emissivity-soil-and-vegetation-title"><span class="std std-ref">Table Emissivity Soil and Vegetation</span></a>.</p>
+</dd>
+<dt><strong>TIR-1 Emis. Veg.</strong></dt><dd><p>This is the value of TIR-1 emissivity vegetation
+, see <a class="reference internal" href="#table-emissivity-soil-and-vegetation-title"><span class="std std-ref">Table Emissivity Soil and Vegetation</span></a>.</p>
+</dd>
+<dt><strong>TIR-2 Emis. Soil</strong></dt><dd><p>This is the value of TIR-2 emissivity soil
+, see <a class="reference internal" href="#table-emissivity-soil-and-vegetation-title"><span class="std std-ref">Table Emissivity Soil and Vegetation</span></a>.</p>
+</dd>
+<dt><strong>TIR-2 Emis. Veg.</strong></dt><dd><p>This is the value of TIR-2 emissivity vegetation
+, see <a class="reference internal" href="#table-emissivity-soil-and-vegetation-title"><span class="std std-ref">Table Emissivity Soil and Vegetation</span></a>.</p>
+</dd>
+<dt><strong>Geomectical</strong></dt><dd><p>This is the value of geomectical factor
+, see <a class="reference internal" href="#table-geometrical-factor-title"><span class="std std-ref">Table Geometrical Factor</span></a>.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="tab-about">
+<h2>Tab About<a class="headerlink" href="#tab-about" title="Permalink to this headline">¶</a></h2>
+<img alt="images/About.png" src="images/About.png" />
+<p>This is a description of the plugin QGIS SPT (author, version plugin, etc.).</p>
+</div>
+<div class="section" id="result">
+<h2>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h2>
+<img alt="images/Result.png" src="images/Result.png" />
+<p>This is a log generated from calculating LST.</p>
+</div>
+<div class="section" id="other">
+<h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
+<img alt="images/Other.png" src="images/Other.png" />
+<dl class="simple">
+<dt><strong>Status:</strong></dt><dd><p>This is a text to shows the activity of plugin QGIS SPT.</p>
+</dd>
+<dt><strong>Button Ok</strong></dt><dd><p>This is the button to start the process of calculating LST
+, see <a class="reference internal" href="#lst-title"><span class="std std-ref">Land Surface Temperature (LST) Split-Window Algorithm Qin</span></a>.</p>
+</dd>
+<dt><strong>Button Close</strong></dt><dd><p>This is the button to close the plugin QGIS SPT.</p>
+</dd>
+<dt><strong>Button Help</strong></dt><dd><p>This is the button to display the help page.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="method-land-surface-temperature-lst">
+<h1>Method Land Surface Temperature (LST)<a class="headerlink" href="#method-land-surface-temperature-lst" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="equation">
+<h2>Equation<a class="headerlink" href="#equation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound" id="lst-title">
+</div>
+<p><strong>Land Surface Temperature (LST) Split-Window Algorithm Qin :</strong> <a class="footnote-reference brackets" href="#id18" id="id1">1</a></p>
+<div class="math notranslate nohighlight" id="equation-lst-split-window-qin">
+<span class="eqno">(1)<a class="headerlink" href="#equation-lst-split-window-qin" title="Permalink to this equation">¶</a></span>\[T_{s}=A_{0}+A_{1} T_{10}-A_{2} T_{11}\]</div>
+<div class="math notranslate nohighlight" id="equation-a0">
+<span class="eqno">(2)<a class="headerlink" href="#equation-a0" title="Permalink to this equation">¶</a></span>\[A_{0}=E_{1} a_{10}+E_{2} a_{11}\]</div>
+<div class="math notranslate nohighlight" id="equation-a1">
+<span class="eqno">(3)<a class="headerlink" href="#equation-a1" title="Permalink to this equation">¶</a></span>\[A_{1}=1+A+E_{1} b_{10}\]</div>
+<div class="math notranslate nohighlight" id="equation-a2">
+<span class="eqno">(4)<a class="headerlink" href="#equation-a2" title="Permalink to this equation">¶</a></span>\[A_{2}=A+E_{2} b_{11}\]</div>
+<div class="math notranslate nohighlight" id="equation-a">
+<span class="eqno">(5)<a class="headerlink" href="#equation-a" title="Permalink to this equation">¶</a></span>\[A=D_{10} / E_{0}\]</div>
+<div class="math notranslate nohighlight" id="equation-e0">
+<span class="eqno">(6)<a class="headerlink" href="#equation-e0" title="Permalink to this equation">¶</a></span>\[E_{0}=D_{11} C_{10}-D_{10} C_{11}\]</div>
+<div class="math notranslate nohighlight" id="equation-e1">
+<span class="eqno">(7)<a class="headerlink" href="#equation-e1" title="Permalink to this equation">¶</a></span>\[E_{1}=D_{11}\left(1-C_{10}-D_{10}\right) / E_{0}\]</div>
+<div class="math notranslate nohighlight" id="equation-e2">
+<span class="eqno">(8)<a class="headerlink" href="#equation-e2" title="Permalink to this equation">¶</a></span>\[E_{2}=D_{10}\left(1-C_{11}-D_{11}\right) / E_{0}\]</div>
+<div class="math notranslate nohighlight" id="equation-di">
+<span class="eqno">(9)<a class="headerlink" href="#equation-di" title="Permalink to this equation">¶</a></span>\[D_{i}=\left[1-\tau_{i}(\theta)\right]\left[1+\left(1-\varepsilon_{i}\right) \tau_{i}(\theta)\right]\]</div>
+<div class="math notranslate nohighlight" id="equation-ci">
+<span class="eqno">(10)<a class="headerlink" href="#equation-ci" title="Permalink to this equation">¶</a></span>\[C_{i}=\varepsilon_{i} \tau_{i}(\theta)\]</div>
+<div class="toctree-wrapper compound" id="bt-title">
+</div>
+<p><strong>Top Of Atmospheric Brightness Temperature :</strong> <a class="footnote-reference brackets" href="#id20" id="id2">3</a></p>
+<div class="math notranslate nohighlight" id="equation-bt">
+<span class="eqno">(11)<a class="headerlink" href="#equation-bt" title="Permalink to this equation">¶</a></span>\[T_{i}=\frac{K_{2}}{\ln \left(\frac{K_{1}}{L_{\lambda}}+1\right)}\]</div>
+<div class="toctree-wrapper compound" id="attrans-title">
+</div>
+<p><strong>Atmospheric Transmittance :</strong> <a class="footnote-reference brackets" href="#id18" id="id3">1</a></p>
+<div class="math notranslate nohighlight" id="equation-attrans-1976us-band-10">
+<span class="eqno">(12)<a class="headerlink" href="#equation-attrans-1976us-band-10" title="Permalink to this equation">¶</a></span>\[\tau_{10}=-0.1146 w+1.0286\]</div>
+<div class="math notranslate nohighlight" id="equation-attrans-1976us-band-11">
+<span class="eqno">(13)<a class="headerlink" href="#equation-attrans-1976us-band-11" title="Permalink to this equation">¶</a></span>\[\tau_{11}=-0.1568 w+1.0083\]</div>
+<div class="math notranslate nohighlight" id="equation-attrans-mid-lat-band-10">
+<span class="eqno">(14)<a class="headerlink" href="#equation-attrans-mid-lat-band-10" title="Permalink to this equation">¶</a></span>\[\tau_{10}=-0.1134 w+1.0335\]</div>
+<div class="math notranslate nohighlight" id="equation-attrans-mid-lat-band-11">
+<span class="eqno">(15)<a class="headerlink" href="#equation-attrans-mid-lat-band-11" title="Permalink to this equation">¶</a></span>\[\tau_{11}=-0.1546 w+1.0078\]</div>
+<div class="toctree-wrapper compound" id="sr-title">
+</div>
+<p><strong>Spectral Radiance :</strong> <a class="footnote-reference brackets" href="#id20" id="id4">3</a></p>
+<div class="math notranslate nohighlight" id="equation-spectral-radiance">
+<span class="eqno">(16)<a class="headerlink" href="#equation-spectral-radiance" title="Permalink to this equation">¶</a></span>\[L_{\lambda}=M_{L} * Q_{c a l}+A_{L}\]</div>
+<div class="toctree-wrapper compound" id="lse-title">
+</div>
+<p><strong>Land Surface Emissivity :</strong> <a class="footnote-reference brackets" href="#id21" id="id5">4</a></p>
+<div class="math notranslate nohighlight" id="equation-land-surface-emissivity">
+<span class="eqno">(17)<a class="headerlink" href="#equation-land-surface-emissivity" title="Permalink to this equation">¶</a></span>\[\begin{split}\varepsilon_{i}=\left\{\begin{array}{cl}
+\varepsilon_{s \lambda i} &amp; NDVI&lt;NDVI_{s} \\
+\varepsilon_{v \lambda i} P_{v}+\varepsilon_{s \lambda i}\left(1-P_ {v}\right)+C_{\lambda i}, &amp; NDVI_{s} \leq NDVI \leq NDVI_{v} \\
+\varepsilon_{v \lambda i} P_{v}+C_{\lambda i,} &amp; NDVI&gt;NDVI_{v}
+\end{array}\right.\end{split}\]</div>
+<div class="toctree-wrapper compound" id="surface-roughness-title">
+</div>
+<p><strong>Surface Roughness :</strong> <a class="footnote-reference brackets" href="#id21" id="id6">4</a></p>
+<div class="math notranslate nohighlight" id="equation-surface-roughness">
+<span class="eqno">(18)<a class="headerlink" href="#equation-surface-roughness" title="Permalink to this equation">¶</a></span>\[C_{\lambda i}=\left(1-\varepsilon_{s \lambda i}\right) \varepsilon_{v \lambda i} F^{\prime}\left(1-P_{v}\right)\]</div>
+<div class="toctree-wrapper compound" id="proportion-of-vegetation-title">
+</div>
+<p><strong>Proportion of Vegetation :</strong> <a class="footnote-reference brackets" href="#id21" id="id7">4</a></p>
+<div class="math notranslate nohighlight" id="equation-proportion-of-vegetation">
+<span class="eqno">(19)<a class="headerlink" href="#equation-proportion-of-vegetation" title="Permalink to this equation">¶</a></span>\[P_{v}=\left[\frac{NDVI-NDVI_{s}}{NDVI_{v}-NDVI_{s}}\right]^{2}\]</div>
+<div class="toctree-wrapper compound" id="ndvi-title">
+</div>
+<p><strong>Normalized Difference Vegetation Index (NDVI) :</strong> <a class="footnote-reference brackets" href="#id21" id="id8">4</a></p>
+<div class="math notranslate nohighlight" id="equation-ndvi">
+<span class="eqno">(20)<a class="headerlink" href="#equation-ndvi" title="Permalink to this equation">¶</a></span>\[NDVI=\frac{N I R-R}{N I R+R}\]</div>
+<div class="toctree-wrapper compound" id="total-water-vapor-content-title">
+</div>
+<p><strong>Total Water Vapor Content :</strong> <a class="footnote-reference brackets" href="#id21" id="id9">4</a></p>
+<div class="math notranslate nohighlight" id="equation-total-water-vapor-content">
+<span class="eqno">(21)<a class="headerlink" href="#equation-total-water-vapor-content" title="Permalink to this equation">¶</a></span>\[\omega=\omega(0) / R_{\omega}(0)\]</div>
+<div class="math notranslate nohighlight" id="equation-water-vapor-content">
+<span class="eqno">(22)<a class="headerlink" href="#equation-water-vapor-content" title="Permalink to this equation">¶</a></span>\[\omega(0)=H \times E \times a / 1000\]</div>
+<div class="toctree-wrapper compound" id="temperature-conversion-title">
+</div>
+<p><strong>Temperature Conversion :</strong> <a class="footnote-reference brackets" href="#id23" id="id10">6</a></p>
+<div class="math notranslate nohighlight" id="equation-k-to-c">
+<span class="eqno">(23)<a class="headerlink" href="#equation-k-to-c" title="Permalink to this equation">¶</a></span>\[\mathrm{K} \text { to }^{\circ} \mathrm{C}=0 \mathrm{K}-273.15\]</div>
+<div class="math notranslate nohighlight" id="equation-c-to-k">
+<span class="eqno">(24)<a class="headerlink" href="#equation-c-to-k" title="Permalink to this equation">¶</a></span>\[^{\circ} \mathrm{C} \text { to } \mathrm{K}=0^{\circ} \mathrm{C}+273.15\]</div>
+<div class="math notranslate nohighlight" id="equation-c-to-f">
+<span class="eqno">(25)<a class="headerlink" href="#equation-c-to-f" title="Permalink to this equation">¶</a></span>\[^{\circ} \mathrm{C} \text { to }^{\circ} \mathrm{F}=\left(0^{\circ} \mathrm{C} \times 9 / 5\right)+32\]</div>
+</div>
+<div class="section" id="value">
+<h2>Value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound" id="table-emissivity-soil-and-vegetation-title">
+</div>
+<p><strong>Table Emissivity Soil and Vegetation :</strong> <a class="footnote-reference brackets" href="#id21" id="id11">4</a></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Bands</p></th>
+<td><p><span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon_{s \lambda i}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\boldsymbol{\varepsilon_{v \lambda i}}\)</span></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Band TIR-1</p></th>
+<td><p>0.964</p></td>
+<td><p>0.984</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Band TIR-2</p></th>
+<td><p>0.970</p></td>
+<td><p>0.980</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound" id="table-regression-coefficients-title">
+</div>
+<p><strong>Table Regression Coefficients :</strong> <a class="footnote-reference brackets" href="#id18" id="id12">1</a></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>T Range</p></th>
+<td><p><span class="math notranslate nohighlight">\(\boldsymbol{a_{10}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\boldsymbol{b_{10}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\boldsymbol{a_{11}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\boldsymbol{b_{11}}\)</span></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>0 - 30</p></th>
+<td><p>-59.1391</p></td>
+<td><p>0.4213</p></td>
+<td><p>-63.3921</p></td>
+<td><p>0.4565</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>0 - 40</p></th>
+<td><p>-60.9196</p></td>
+<td><p>0.4276</p></td>
+<td><p>-65.2240</p></td>
+<td><p>0.4629</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>10 - 10</p></th>
+<td><p>-62.8065</p></td>
+<td><p>0.4338</p></td>
+<td><p>-67.1728</p></td>
+<td><p>0.4694</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>10 - 50</p></th>
+<td><p>-64.6081</p></td>
+<td><p>0.4399</p></td>
+<td><p>-69.0215</p></td>
+<td><p>0.4756</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound" id="table-ratio-water-vapor-content-title">
+</div>
+<p><strong>Table Ratio Water Vapor Content for range value Total Water Vapor Content 0.5–3 g/cm</strong><span class="math notranslate nohighlight">\(\boldsymbol{^2 }\)</span> <strong>:</strong> <a class="footnote-reference brackets" href="#id19" id="id13">2</a></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>T Range</p></th>
+<td><p><span class="math notranslate nohighlight">\(\boldsymbol{R_{\omega}(0)}\)</span></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Tropical atmosphere</p></th>
+<td><p>0.6834</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Sub-tropical summer</p></th>
+<td><p>0.6819</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Sub-tropical winter</p></th>
+<td><p>0.6593</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Mid-latitude summer</p></th>
+<td><p>0.6834</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Mid-latitude winter</p></th>
+<td><p>0.6356</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound" id="table-geometrical-factor-title">
+</div>
+<p><strong>Table Geometrical Factor :</strong> <a class="footnote-reference brackets" href="#id21" id="id14">4</a></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Description</p></th>
+<td><p><span class="math notranslate nohighlight">\(\boldsymbol{F^{\prime}}\)</span> <strong>Default Value</strong></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Geometrical Factor</p></th>
+<td><p>0.5</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound" id="table-ndvi-soil-and-vegetation-title">
+</div>
+<p><strong>Table NDVI Soil and Vegetation :</strong> <a class="footnote-reference brackets" href="#id21" id="id15">4</a></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Description</p></th>
+<td><p><span class="math notranslate nohighlight">\(\boldsymbol{NDVI_{s}}\)</span> <strong>and</strong> <span class="math notranslate nohighlight">\(\boldsymbol{NDVI_{v}}\)</span> <strong>Default Value</strong></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>NDVI Soil</p></th>
+<td><p>0.2</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>NDVI Vegetation</p></th>
+<td><p>0.5 (may be to low in some cases)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound" id="table-saturation-mix-ratio-and-air-density-title">
+</div>
+<p><strong>Table Saturation Mix Ratio and Air Density :</strong> <a class="footnote-reference brackets" href="#id19" id="id16">2</a></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(\boldsymbol{T}\)</span> <strong>Range(</strong> <span class="math notranslate nohighlight">\(\boldsymbol{^{\circ} \mathrm{C}}\)</span> <strong>)</strong></p></th>
+<td><p><span class="math notranslate nohighlight">\(\boldsymbol{E}\)</span> <strong>(g/kg</strong> <span class="math notranslate nohighlight">\(\boldsymbol{^{-1}}\)</span> <strong>)</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\boldsymbol{a}\)</span> <strong>(kg/m</strong> <span class="math notranslate nohighlight">\(\boldsymbol{^{-3}}\)</span> <strong>)</strong></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>45</p></th>
+<td><p>66.33</p></td>
+<td><p>1.11</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>40</p></th>
+<td><p>49.81</p></td>
+<td><p>1.13</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>35</p></th>
+<td><p>37.25</p></td>
+<td><p>1.15</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>30</p></th>
+<td><p>27.69</p></td>
+<td><p>1.17</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>25</p></th>
+<td><p>20.44</p></td>
+<td><p>1.18</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>20</p></th>
+<td><p>14.95</p></td>
+<td><p>1.21</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>15</p></th>
+<td><p>10.83</p></td>
+<td><p>1.23</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>10</p></th>
+<td><p>7.76</p></td>
+<td><p>1.25</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>5</p></th>
+<td><p>5.50</p></td>
+<td><p>1.27</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>0</p></th>
+<td><p>3.84</p></td>
+<td><p>1.29</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>-5</p></th>
+<td><p>2.52</p></td>
+<td><p>1.32</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>-10</p></th>
+<td><p>1.63</p></td>
+<td><p>1.34</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound" id="table-band-red-nir-tir-1-and-tir-2-landsat-8-title">
+</div>
+<p><strong>Table band Red, NIR, TIR-1, and TIR-2 Landsat 8 :</strong> <a class="footnote-reference brackets" href="#id22" id="id17">5</a></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Bands</p></th>
+<td><p><strong>Bands Landsat 8</strong></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Band Red</p></th>
+<td><p>Band 4</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Band NIR</p></th>
+<td><p>Band 5</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Band TIR-1</p></th>
+<td><p>Band 10</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Band TIR-2</p></th>
+<td><p>Band 11</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound" id="table-metadata-landsat-8-title">
+</div>
+<p><strong>Table Metadata Landsat 8 :</strong></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Metadata</p></th>
+<td><p><strong>Value Landsat 8</strong></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><span class="math notranslate nohighlight">\(\boldsymbol{\boldsymbol{K}_{1}}\)</span> (TIR-1)</p></th>
+<td><p>774.8853</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(\boldsymbol{\boldsymbol{K}_{1}}\)</span> (TIR-2)</p></th>
+<td><p>480.8883</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><span class="math notranslate nohighlight">\(\boldsymbol{\boldsymbol{K}_{2}}\)</span> (TIR-1)</p></th>
+<td><p>1321.0789</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(\boldsymbol{\boldsymbol{K}_{2}}\)</span> (TIR-2)</p></th>
+<td><p>1201.1442</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><span class="math notranslate nohighlight">\(\boldsymbol{\boldsymbol{M}_{L}}\)</span> (TIR-1 and TIR-2)</p></th>
+<td><p>0.0003342</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><span class="math notranslate nohighlight">\(\boldsymbol{\boldsymbol{A}_{L}}\)</span> (TIR-1 and TIR-2)</p></th>
+<td><p>0.1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
+<dl class="footnote brackets">
+<dt class="label" id="id18"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id3">2</a>,<a href="#id12">3</a>)</span></dt>
+<dd><p>Qin, et al. (2014) ‘Derivation of land surface temperature for landsat-8 TIRS using a split window algorithm’, Sensors (Switzerland), 14(4), pp. 5768–5780. doi: 10.3390/s140405768.</p>
+</dd>
+<dt class="label" id="id19"><span class="brackets">2</span><span class="fn-backref">(<a href="#id13">1</a>,<a href="#id16">2</a>)</span></dt>
+<dd><p>Qin, et al. (2015) ‘An improved mono-window algorithm for land surface temperature retrieval from landsat 8 thermal infrared sensor data’, Remote Sensing, 7(4), pp. 4268–4289. doi: 10.3390/rs70404268.</p>
+</dd>
+<dt class="label" id="id20"><span class="brackets">3</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id4">2</a>)</span></dt>
+<dd><p>USGS. (2019) ‘Landsat 8 (L8) Data Users Handbook’.</p>
+</dd>
+<dt class="label" id="id21"><span class="brackets">4</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id6">2</a>,<a href="#id7">3</a>,<a href="#id8">4</a>,<a href="#id9">5</a>,<a href="#id11">6</a>,<a href="#id14">7</a>,<a href="#id15">8</a>)</span></dt>
+<dd><p>Tsou, J. et al. (2017) ‘Urban Heat Island Assessment Using the Landsat 8 Data: A Case Study in Shenzhen and Hong Kong’, Urban Science, 1(1), p. 10. doi: 10.3390/urbansci1010010.</p>
+</dd>
+<dt class="label" id="id22"><span class="brackets"><a class="fn-backref" href="#id17">5</a></span></dt>
+<dd><p><a class="reference external" href="https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/BandpassesL7vL8_Jul20131.pdf">https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/BandpassesL7vL8_Jul20131.pdf</a></p>
+</dd>
+<dt class="label" id="id23"><span class="brackets"><a class="fn-backref" href="#id10">6</a></span></dt>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature">https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature</a></p>
+</dd>
+</dl>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Plugin QGIS SPT</a></li>
+<li><a class="reference internal" href="#concepts">Concepts</a></li>
+<li><a class="reference internal" href="#running-plugin-qgis-spt">Running Plugin QGIS SPT</a><ul>
+<li><a class="reference internal" href="#tab-parameter">Tab Parameter</a></li>
+<li><a class="reference internal" href="#tab-about">Tab About</a></li>
+<li><a class="reference internal" href="#result">Result</a></li>
+<li><a class="reference internal" href="#other">Other</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#method-land-surface-temperature-lst">Method Land Surface Temperature (LST)</a><ul>
+<li><a class="reference internal" href="#equation">Equation</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#value">Value</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          </li>
+        <li class="nav-item nav-item-0"><a href="#">Plugin QGIS SPT  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Muhammad Rahmahalim.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.2.
+    </div>
+  </body>
+</html>

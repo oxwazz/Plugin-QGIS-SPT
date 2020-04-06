@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/plugins/QGIS_SPT">
+    <file>image/Logo Plugin QGIS SPT.png</file>
+    <file>icon.png</file>
+  </qresource>
+</RCC>
