@@ -526,6 +526,7 @@ class QGISSPT:
             
             self.dlg.le_ndviv.setText('0.5')
             self.dlg.le_watervapor.setText('')
+            #
 
             # self.dlg.le_watervapor.setText('2.0394400')
             # self.dlg.le_ndviv.setText('0.616047')
