@@ -5,7 +5,7 @@
 
 Plugin QGIS SPT
 ===============================================
-.. image:: images/Logo.png
+![Logo](https://user-images.githubusercontent.com/58234878/87500090-e26d8600-c685-11ea-849a-00fbeadfbf26.png)
 
 Concepts
 =================
@@ -25,9 +25,9 @@ Running Plugin QGIS SPT
 Tab Parameter
 --------------------------
 
-1. General Setting:
+General Setting:
 
-.. image:: images/Parameter.png
+![Parameter](https://user-images.githubusercontent.com/58234878/87500100-e699a380-c685-11ea-9189-ea4580111bcb.png)
 
 - **Data Satellite** is data with values obtained from the metadata used for calculate LST.
 
@@ -47,9 +47,9 @@ Tab Parameter
 
 - **Save Output** is to determine the external directory of the data LST.
 
-2. Advance Setting:
+Advance Setting:
 
-.. image:: images/ParameterAdv.png
+![ParameterAdv](https://user-images.githubusercontent.com/58234878/87500102-e8636700-c685-11ea-8e7d-190701308971.png)
 
 - **At-Transmittance** is the value of atmospheric transmittance.
 
@@ -70,22 +70,19 @@ Tab Parameter
 
 Tab About
 --------------------------
-
-.. image:: images/About.png
+![About](https://user-images.githubusercontent.com/58234878/87500085-e00b2c00-c685-11ea-978b-514fd3490167.png)
 
 This is a description of the plugin QGIS SPT (author, version plugin, etc.).
 
 Result
 --------------------------
-
-.. image:: images/Result.png
+![Result](https://user-images.githubusercontent.com/58234878/87500106-ea2d2a80-c685-11ea-9fc4-ef92f60adc07.png)
 
 This is a log generated from calculating LST.
 
 Other
 --------------------------
-
-.. image:: images/Other.png
+![Other](https://user-images.githubusercontent.com/58234878/87500097-e5687680-c685-11ea-9499-c54fe50af407.png)
 
 - **Status:** is a text to shows the activity of plugin QGIS SPT.
 
