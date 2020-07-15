@@ -30,8 +30,7 @@ General Setting:
 .. image:: images/Parameter.png
 
 **Data Satellite**
- Data Satellite is data with values ​​obtained from the metadata used for calculate LST
- , see :ref:`Table Metadata Landsat 8 title`.
+ Data Satellite is data with values obtained from the metadata used for calculate LST.
 
 **Output Temp.**
  Output temperature is to determine the external value of the resulting temperature
