@@ -25,7 +25,7 @@ Running Plugin QGIS SPT
 Tab Parameter
 --------------------------
 
-General Setting:
+1. General Setting:
 
 .. image:: images/Parameter.png
 
@@ -47,9 +47,7 @@ General Setting:
 
 - **Save Output** is to determine the external directory of the data LST.
 
-
-
-Advance Setting:
+2. Advance Setting:
 
 .. image:: images/ParameterAdv.png
 
@@ -57,17 +55,17 @@ Advance Setting:
 
 - **NDVI Soil** is the value of NDVI soil.
 
-**NDVI Vegetation** is the value of NDVI vegetation.
+- **NDVI Vegetation** is the value of NDVI vegetation.
 
-**TIR-1 Emis. Soil** is the value of TIR-1 emissivity soil.
+- **TIR-1 Emis. Soil** is the value of TIR-1 emissivity soil.
 
-**TIR-1 Emis. Veg.** is the value of TIR-1 emissivity vegetation.
+- **TIR-1 Emis. Veg.** is the value of TIR-1 emissivity vegetation.
 
-**TIR-2 Emis. Soil** is the value of TIR-2 emissivity soil.
+- **TIR-2 Emis. Soil** is the value of TIR-2 emissivity soil.
 
-**TIR-2 Emis. Veg.** is the value of TIR-2 emissivity vegetation.
+- **TIR-2 Emis. Veg.** is the value of TIR-2 emissivity vegetation.
 
-**Geomectical** is the value of geomectical factor.
+- **Geomectical** is the value of geomectical factor.
 
 
 Tab About
@@ -89,18 +87,13 @@ Other
 
 .. image:: images/Other.png
 
-**Status:**
- This is a text to shows the activity of plugin QGIS SPT.
+- **Status:** is a text to shows the activity of plugin QGIS SPT.
 
-**Button Ok**
- This is the button to start the process of calculating LST
- , see :ref:`LST title`.
+- **Button Ok** is the button to start the process of calculating LST.
 
-**Button Close**
- This is the button to close the plugin QGIS SPT.
+- **Button Close** is the button to close the plugin QGIS SPT.
 
-**Button Help**
- This is the button to display the help page.
+- **Button Help** is the button to display the help page.
 
 
 References
