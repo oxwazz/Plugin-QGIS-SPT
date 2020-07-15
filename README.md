@@ -13,10 +13,10 @@ Plugin QGIS SPT provides you for estimating land surface temperature (LST) with 
 
 The steps to using Plugin QGIS SPT are fairly simple:
 
-#. Open the plugin QGIS SPT from within QGIS.
-#. Fill out the required value and input data band obtained from landsat 8 satellite imagery.
-#. If you have the different value, you can change the default value from advance setting.
-#. Calculate LST.
+1. Open the plugin QGIS SPT from within QGIS.
+2. Fill out the required value and input data band obtained from landsat 8 satellite imagery.
+3. If you have the different value, you can change the default value from advance setting.
+4. Calculate LST.
 
 
 Running Plugin QGIS SPT
@@ -29,32 +29,33 @@ General Setting:
 
 .. image:: images/Parameter.png
 
-**Data Satellite** is data with values obtained from the metadata used for calculate LST.
+- **Data Satellite** is data with values obtained from the metadata used for calculate LST.
 
-**Output Temp.** is to determine the external value of the resulting temperature.
+- **Output Temp.** is to determine the external value of the resulting temperature.
 
-**Range Temp.** is the average value of air temperature in the area.
+- **Range Temp.** is the average value of air temperature in the area.
 
-**Tot. Water Vapor** is the value of total water vapor content.
+- **Tot. Water Vapor** is the value of total water vapor content.
 
-**Band Red** is data from landsat 8 satellite imagery.
+- **Band Red** is data from landsat 8 satellite imagery.
 
-**Band NIR** is data from landsat 8 satellite imagery.
+- **Band NIR** is data from landsat 8 satellite imagery.
 
-**Band TIR-1** is data from landsat 8 satellite imagery.
+- **Band TIR-1** is data from landsat 8 satellite imagery.
 
-**Band TIR-2** is data from landsat 8 satellite imagery.
+- **Band TIR-2** is data from landsat 8 satellite imagery.
 
-**Save Output** is to determine the external directory of the data LST.
+- **Save Output** is to determine the external directory of the data LST.
+
 
 
 Advance Setting:
 
 .. image:: images/ParameterAdv.png
 
-**At-Transmittance** is the value of atmospheric transmittance.
+- **At-Transmittance** is the value of atmospheric transmittance.
 
-**NDVI Soil** is the value of NDVI soil.
+- **NDVI Soil** is the value of NDVI soil.
 
 **NDVI Vegetation** is the value of NDVI vegetation.
 
