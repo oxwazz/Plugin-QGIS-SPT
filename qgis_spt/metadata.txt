@@ -12,8 +12,8 @@ email=muhammad.rahmahalim@gmail.com
 
 about=Plugin QGIS SPT is a tool for estimating Land Surface Temperature (LST) using Split-Window Algorithm (SWA) Qin method
 
-tracker=http://example.com/bug
-repository=http://example.com/repo
+tracker=https://github.com/OXWAZZ/plugin-qgis-spt
+repository=https://github.com/OXWAZZ/plugin-qgis-spt
 # End of mandatory metadata
 
 # Recommended items:
@@ -25,7 +25,7 @@ hasProcessingProvider=no
 # Tags are comma separated with spaces allowed
 tags=python
 
-homepage=https://github.com/OXWAZZ
+homepage=https://github.com/OXWAZZ/plugin-qgis-spt
 category=Plugins
 icon=icon.png
 # experimental flag

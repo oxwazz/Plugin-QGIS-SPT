@@ -1,7 +1,7 @@
 class RegCoefficient():
-    def getData(self, value): 
+    def getData(self, value):
         self.value = value
-        
+
         if self.value == "0 - 30":
             A10 = "-59.1391"
             B10 = "0.4213"

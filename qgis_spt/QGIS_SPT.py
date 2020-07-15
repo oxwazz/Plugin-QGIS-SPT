@@ -26,7 +26,7 @@ from qgis.PyQt.QtGui import QIcon, QDesktopServices
 from qgis.PyQt.QtWidgets import QAction
 
 
-#tambah
+# Tambah
 from qgis.core import QgsRasterLayer
 from qgis.analysis import QgsRasterCalculator, QgsRasterCalculatorEntry
 from PyQt5.QtWidgets import QLineEdit, QRadioButton, QFileDialog, QMessageBox, QDialog
@@ -59,7 +59,7 @@ class QGISSPT:
         # Save reference to the QGIS interface
         self.iface = iface
 
-        #tambah
+        # tambah
         self.attrans = AtTransmittance()
         self.equation = Equation()
         self.datasatellit = DataSatellit()
@@ -101,7 +101,6 @@ class QGISSPT:
         """
         # noinspection PyTypeChecker,PyArgumentList,PyCallByClass
         return QCoreApplication.translate('QGISSPT', message)
-
 
     def add_action(
         self,
@@ -190,7 +189,6 @@ class QGISSPT:
         # will be set False in run()
         self.first_start = True
 
-
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
         for action in self.actions:
@@ -199,57 +197,52 @@ class QGISSPT:
                 action)
             self.iface.removeToolBarIcon(action)
 
-
-#==================== OTHER ======================
-    #fungsi menampilkan pop-up error
+# ==================== OTHER ======================
+    # fungsi menampilkan pop-up error
     def popError(self, logo, name, description):
         self.logo = logo
         self.name = name
         self.description = description
         if self.logo == "Warning":
             msg = QMessageBox()
-            # msg.setText("(" + self.nama + ") " + self.keterangan)
             msg.setText("[" + self.name + "] " + self.description)
             msg.setWindowTitle("Error : " + self.name)
             msg.setIcon(QMessageBox.Warning)
             msg.exec()
         if self.logo == "Critical":
             msg = QMessageBox()
-            # msg.setText("(" + self.nama + ") " + self.keterangan)
             msg.setText("[" + self.name + "] " + self.description)
             msg.setWindowTitle("Error : " + self.name)
             msg.setIcon(QMessageBox.Critical)
-            msg.exec() 
+            msg.exec()
 
-    #fungsi konversi data suhu
-    def outputTemp(self): 
+    # fungsi konversi data suhu
+    def outputTemp(self):
         self.value = self.dlg.cb_outputtemp.currentText()
-        
+
         if self.value == "Celcius":
             TEMP = "+0"
             return TEMP
-
         if self.value == "Kelvin":
             TEMP = "+273.15"
             return TEMP
-
         if self.value == "Fahrenheit":
             TEMP = "* 9/5 + 32"
             return TEMP
 
-    #fungsi cek value string LineEdit (return float & string)
+    # fungsi cek value string LineEdit (return float & string)
     def checkString(self, value):
         le = QLineEdit()
         self.value = value
         le.setText(self.value)
         if le.text().isnumeric():
             return float(le.text())
-        elif le.text().replace('.','',1).isnumeric():
+        elif le.text().replace('.', '', 1).isnumeric():
             return float(le.text())
         else:
             return le.text()
 
-    #fungsi cek semua input
+    # fungsi cek semua input
     def checkInput(self):
         file_bred = self.dlg.fw_bred.filePath()
         file_bnir = self.dlg.fw_bnir.filePath()
@@ -277,7 +270,7 @@ class QGISSPT:
                 if value_cb_rangetemp != "- select range temp. -":
                     if isinstance(val_watervapor, float):
                         if val_watervapor <= 3.0 and val_watervapor >= 0.5:
-                            #tes fw red
+                            # tes fw red
                             if not file_bred:
                                 self.popError("Warning", "Band Red", "has no value.\nplease insert the directory.")
                             elif not os.path.exists(Path(file_bred).parent):
@@ -287,7 +280,7 @@ class QGISSPT:
                             elif Path(str(file_bred)).suffix != '.tif' and Path(str(file_bred)).suffix != '.TIF':
                                 self.popError("Critical", "Band Red", "error with extention.\nplease insert only with .tif/.TIF extention.")
                             elif os.path.exists(Path(file_bred).parent):
-                                #tes fw bnir
+                                # tes fw bnir
                                 if not file_bnir:
                                     self.popError("Warning", "Band NIR", "has no value.")
                                 elif not os.path.exists(Path(file_bnir).parent):
@@ -297,7 +290,7 @@ class QGISSPT:
                                 elif Path(str(file_bnir)).suffix != '.tif' and Path(str(file_bnir)).suffix != '.TIF':
                                     self.popError("Critical", "Band NIR", "harus tif")
                                 elif os.path.exists(Path(file_bnir).parent):
-                                    #tes fw btir1
+                                    # tes fw btir1
                                     if not file_btir1:
                                         self.popError("Warning", "Band TIR-1", "has no value.")
                                     elif not os.path.exists(Path(file_btir1).parent):
@@ -307,7 +300,7 @@ class QGISSPT:
                                     elif Path(str(file_btir1)).suffix != '.tif' and Path(str(file_btir1)).suffix != '.TIF':
                                         self.popError("Critical", "Band TIR-1", "harus tif")
                                     elif os.path.exists(Path(file_btir1).parent):
-                                        #tes fw btir2
+                                        # tes fw btir2
                                         if not file_btir2:
                                             self.popError("Warning", "Band TIR-2", "has no value.")
                                         elif not os.path.exists(Path(file_btir2).parent):
@@ -325,13 +318,13 @@ class QGISSPT:
                                                                 if val_tir1emissivitys <= 1.0 and val_tir1emissivitys >= 0.0:
                                                                     if isinstance(val_tir1emissivityv, float):
                                                                         if val_tir1emissivityv <= 1.0 and val_tir1emissivityv >= 0.0:
-                                                                            if isinstance(val_tir2emissivitys, float): 
+                                                                            if isinstance(val_tir2emissivitys, float):
                                                                                 if val_tir2emissivitys <= 1.0 and val_tir2emissivitys >= 0.0:
                                                                                     if isinstance(val_tir2emissivityv, float):
                                                                                         if val_tir2emissivityv <= 1.0 and val_tir2emissivityv >= 0.0:
                                                                                             if isinstance(val_geometrical, float):
                                                                                                 if val_geometrical <= 1.0 and val_geometrical >= 0.0:
-                                                                                                    #test fw save output
+                                                                                                    # test fw save output
                                                                                                     if not dir_output:
                                                                                                         self.popError("Warning", "Save Output", "has no value.")
                                                                                                     elif not os.path.exists(Path(dir_output).parent):
@@ -363,19 +356,19 @@ class QGISSPT:
                                                                                                 else:
                                                                                                     self.popError("Warning", "Geometrical", "Value must be range 0.0 - 1.0")
                                                                                             else:
-                                                                                                self.popError("Warning", "Geometrical", "Please enter the value; value must be number.") 
+                                                                                                self.popError("Warning", "Geometrical", "Please enter the value; value must be number.")
                                                                                         else:
                                                                                             self.popError("Warning", "TIR-2 Emis. Veg.", "Value must be range 0.0 - 1.0")
                                                                                     else:
-                                                                                        self.popError("Warning", "TIR-2 Emis. Veg.", "Please enter the value; value must be number.") 
+                                                                                        self.popError("Warning", "TIR-2 Emis. Veg.", "Please enter the value; value must be number.")
                                                                                 else:
                                                                                     self.popError("Warning", "TIR-2 Emis. Soil", "Value must be range 0.0 - 1.0")
                                                                             else:
-                                                                              self.popError("Warning", "TIR-2 Emis. Soil", "Please enter the value; value must be number.")
+                                                                                self.popError("Warning", "TIR-2 Emis. Soil", "Please enter the value; value must be number.")
                                                                         else:
                                                                             self.popError("Warning", "TIR-1 Emis. Veg.", "Value must be range 0.0 - 1.0")
                                                                     else:
-                                                                      self.popError("Warning", "TIR-1 Emis. Veg.", "Please enter the value; value must be number.") 
+                                                                        self.popError("Warning", "TIR-1 Emis. Veg.", "Please enter the value; value must be number.")
                                                                 else:
                                                                     self.popError("Warning", "TIR-1 Emis. Soil", "Value must be range 0.0 - 1.0")
                                                             else:
@@ -399,7 +392,7 @@ class QGISSPT:
         else:
             self.popError("Warning", "Data Satellit", "Please select the value.")
 
-#==================== FUNGSI SPLIT WINDOW QIN ====================== 
+# ==================== FUNGSI SPLIT WINDOW QIN ======================
     def splitWindowQin(self):
         dir_output = self.dlg.fw_output.filePath()
         path = os.path.join(str(Path(dir_output).parent), 'temp_folder', '')
@@ -465,7 +458,7 @@ class QGISSPT:
         self.equation.calc_10_e(dir_output, dir_pv, dir_c_kecil_10, 'yes', val_tir1emissivitys, val_tir1emissivityv)
         self.equation.calc_10_cbesar(dir_output, dir_e_10, 'yes', val_attransmit1)
         self.equation.calc_10_d(dir_output, dir_e_10, 'yes', val_attransmit1)
-        
+
         while finish < 70:
             finish += 0.0001
             self.dlg.progressBar.setValue(finish)
@@ -481,7 +474,7 @@ class QGISSPT:
         self.equation.calc_a2(dir_output, dir_A, dir_E2, 'yes', B11)
         self.equation.calc_a1(dir_output, dir_A, dir_E1, 'yes', B10)
         self.equation.calc_a0(dir_output, dir_E1, dir_E2, 'yes', A10, A11)
-        
+
         while finish < 100:
             finish += 0.0001
             self.dlg.progressBar.setValue(finish)
@@ -493,7 +486,6 @@ class QGISSPT:
         help_file = 'file:///%s/help/index.html' % self.plugin_dir
 
         QDesktopServices.openUrl(QUrl(help_file))
-       
 
     def run(self):
         """Run method that performs all the real work"""
@@ -504,12 +496,12 @@ class QGISSPT:
             self.first_start = False
             self.dlg = QGISSPTDialog()
 
-            #=============== PUSH BUTTON ===============
+            # =============== PUSH BUTTON ===============
             self.dlg.pb_ok.clicked.connect(self.checkInput)
             self.dlg.pb_close.clicked.connect(lambda: self.dlg.close())
             self.dlg.pb_help.clicked.connect(self.showHelp)
-           
-            #=============== FILE WIDGET ===============
+
+            # =============== FILE WIDGET ===============
             self.dlg.fw_output.setStorageMode(QgsFileWidget.SaveFile)
             self.dlg.fw_output.setFilter("GeoTIFF (*.tif *.TIF)")
             self.dlg.fw_bred.setFilter("GeoTIFF (*.tif *.TIF)")
@@ -523,10 +515,9 @@ class QGISSPT:
             self.dlg.le_tir2emissivitys.setText('0.970')
             self.dlg.le_tir2emissivityv.setText('0.980')
             self.dlg.le_geometrical.setText('0.5')
-            
+
             self.dlg.le_ndviv.setText('0.5')
             self.dlg.le_watervapor.setText('')
-            #
 
             # self.dlg.le_watervapor.setText('2.0394400')
             # self.dlg.le_ndviv.setText('0.616047')
@@ -535,7 +526,6 @@ class QGISSPT:
             # self.dlg.fw_btir1.setFilePath("C/Users/HALIM/Downloads/olah/CROP/BAND 10.tif")
             # self.dlg.fw_btir2.setFilePath("C/Users/HALIM/Downloads/olah/CROP/BAND 11.tif")
             # self.dlg.fw_output.setFilePath("C/Users/HALIM/Downloads/olah/CROP/SPT.tif")
-
 
         # show the dialog
         self.dlg.show()
