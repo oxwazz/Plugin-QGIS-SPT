@@ -1,0 +1,455 @@
+.. QGIS Plugin Builder documentation master file, created by
+   sphinx-quickstart on Sat Jan  5 14:17:19 2013.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Plugin QGIS SPT
+===============================================
+.. image:: images/Logo.png
+
+Concepts
+=================
+Plugin QGIS SPT provides you for estimating land surface temperature (LST) with split-window algorithm (SWA) Qin for Landsat 8.
+
+The steps to using Plugin QGIS SPT are fairly simple:
+
+#. Open the plugin QGIS SPT from within QGIS.
+#. Fill out the required value and input data band obtained from landsat 8 satellite imagery.
+#. If you have the different value, you can change the default value from advance setting.
+#. Calculate LST.
+
+
+Running Plugin QGIS SPT
+======================
+
+Tab Parameter
+--------------------------
+
+General Setting:
+
+.. image:: images/Parameter.png
+
+**Data Satellite**
+ Data Satellite is data with values ​​obtained from the metadata used for calculate LST
+ , see :ref:`Table Metadata Landsat 8 title`.
+
+**Output Temp.**
+ Output temperature is to determine the external value of the resulting temperature
+ , see :ref:`Temperature Conversion title`.
+
+**Range Temp.**
+ Range temperature is the average value of air temperature in the area
+ , see :ref:`Table Regression Coefficients title`.
+
+**Tot. Water Vapor**
+ Total water vapor is the value of total water vapor content
+ , see :ref:`Total Water Vapor Content title`.
+
+**Band Red**
+ Band red is data from landsat 8 satellite imagery
+ , see :ref:`Table band Red, NIR, TIR-1, and TIR-2 Landsat 8 title`.
+
+**Band NIR**
+ Band near-infrared (NIR) is data from landsat 8 satellite imagery
+ , see :ref:`Table band Red, NIR, TIR-1, and TIR-2 Landsat 8 title`.
+
+**Band TIR-1**
+ Band thermal-infrared 1 (TIR-1) is data from landsat 8 satellite imagery
+ , see :ref:`Table band Red, NIR, TIR-1, and TIR-2 Landsat 8 title`.
+
+**Band TIR-2**
+ Band thermal-infrared 2 (TIR-2) is data from landsat 8 satellite imagery
+ , see :ref:`Table band Red, NIR, TIR-1, and TIR-2 Landsat 8 title`.
+
+**Save Output**
+ Save output is to determine the external directory of the data LST.
+
+
+Advance Setting:
+
+.. image:: images/ParameterAdv.png
+
+**At-Transmittance**
+ This is the value of atmospheric transmittance
+ , see :ref:`Attrans title`.
+
+**NDVI Soil**
+ This is the value of NDVI soil
+ , see :ref:`Table NDVI Soil and Vegetation title`.
+
+**NDVI Vegetation**
+ This is the value of NDVI vegetation
+ , see :ref:`Table NDVI Soil and Vegetation title`.
+
+**TIR-1 Emis. Soil**
+ This is the value of TIR-1 emissivity soil
+ , see :ref:`Table Emissivity Soil and Vegetation title`.
+
+**TIR-1 Emis. Veg.**
+ This is the value of TIR-1 emissivity vegetation
+ , see :ref:`Table Emissivity Soil and Vegetation title`.
+
+**TIR-2 Emis. Soil**
+ This is the value of TIR-2 emissivity soil
+ , see :ref:`Table Emissivity Soil and Vegetation title`.
+
+**TIR-2 Emis. Veg.**
+ This is the value of TIR-2 emissivity vegetation
+ , see :ref:`Table Emissivity Soil and Vegetation title`.
+
+**Geomectical**
+ This is the value of geomectical factor
+ , see :ref:`Table Geometrical Factor title`.
+
+
+Tab About
+--------------------------
+
+.. image:: images/About.png
+
+This is a description of the plugin QGIS SPT (author, version plugin, etc.).
+
+Result
+--------------------------
+
+.. image:: images/Result.png
+
+This is a log generated from calculating LST.
+
+Other
+--------------------------
+
+.. image:: images/Other.png
+
+**Status:**
+ This is a text to shows the activity of plugin QGIS SPT.
+
+**Button Ok**
+ This is the button to start the process of calculating LST
+ , see :ref:`LST title`.
+
+**Button Close**
+ This is the button to close the plugin QGIS SPT.
+
+**Button Help**
+ This is the button to display the help page.
+
+Method Land Surface Temperature (LST)
+======================
+
+Equation
+--------------------------
+
+.. toctree::
+   :caption: Land Surface Temperature (LST) Split-Window Algorithm Qin
+   :name: LST title
+
+**Land Surface Temperature (LST) Split-Window Algorithm Qin :** [1]_
+
+.. math::
+ T_{s}=A_{0}+A_{1} T_{10}-A_{2} T_{11}
+ :label: LST Split-Window Qin
+
+.. math::
+ A_{0}=E_{1} a_{10}+E_{2} a_{11}
+ :label: A0
+
+.. math::
+ A_{1}=1+A+E_{1} b_{10}
+ :label: A1
+
+.. math::
+ A_{2}=A+E_{2} b_{11}
+ :label: A2
+
+.. math::
+ A=D_{10} / E_{0}
+ :label: A
+
+.. math::
+ E_{0}=D_{11} C_{10}-D_{10} C_{11}
+ :label: E0
+
+.. math::
+ E_{1}=D_{11}\left(1-C_{10}-D_{10}\right) / E_{0}
+ :label: E1
+
+.. math::
+ E_{2}=D_{10}\left(1-C_{11}-D_{11}\right) / E_{0}
+ :label: E2
+
+.. math::
+ D_{i}=\left[1-\tau_{i}(\theta)\right]\left[1+\left(1-\varepsilon_{i}\right) \tau_{i}(\theta)\right]
+ :label: Di
+
+.. math::
+ C_{i}=\varepsilon_{i} \tau_{i}(\theta)
+ :label: Ci
+
+.. toctree::
+   :caption: Top Of Atmospheric Brightness Temperature
+   :name: BT title
+
+**Top Of Atmospheric Brightness Temperature :** [3]_
+
+.. math::
+ T_{i}=\frac{K_{2}}{\ln \left(\frac{K_{1}}{L_{\lambda}}+1\right)}
+ :label: BT
+
+.. toctree::
+   :caption: Atmospheric Transmittance
+   :name: Attrans title
+
+**Atmospheric Transmittance :** [1]_
+
+.. math::
+ \tau_{10}=-0.1146 w+1.0286
+ :label: Attrans 1976US Band 10
+
+.. math::
+ \tau_{11}=-0.1568 w+1.0083
+ :label: Attrans 1976US Band 11
+
+.. math::
+ \tau_{10}=-0.1134 w+1.0335
+ :label: Attrans Mid-Lat Band 10
+
+.. math::
+ \tau_{11}=-0.1546 w+1.0078
+ :label: Attrans Mid-Lat Band 11
+
+.. toctree::
+   :caption: Spectral Radiance
+   :name: SR title
+
+**Spectral Radiance :** [3]_
+
+.. math::
+ L_{\lambda}=M_{L} * Q_{c a l}+A_{L}
+ :label: Spectral Radiance
+
+.. toctree::
+   :caption: Land Surface Emissivity
+   :name: LSE title
+
+**Land Surface Emissivity :** [4]_
+
+.. math::
+ \varepsilon_{i}=\left\{\begin{array}{cl}
+ \varepsilon_{s \lambda i} & NDVI<NDVI_{s} \\
+ \varepsilon_{v \lambda i} P_{v}+\varepsilon_{s \lambda i}\left(1-P_ {v}\right)+C_{\lambda i}, & NDVI_{s} \leq NDVI \leq NDVI_{v} \\
+ \varepsilon_{v \lambda i} P_{v}+C_{\lambda i,} & NDVI>NDVI_{v}
+ \end{array}\right.
+ :label: Land Surface Emissivity
+
+.. toctree::
+   :caption: Surface Roughness
+   :name: Surface Roughness title
+
+**Surface Roughness :** [4]_
+
+.. math::
+ C_{\lambda i}=\left(1-\varepsilon_{s \lambda i}\right) \varepsilon_{v \lambda i} F^{\prime}\left(1-P_{v}\right)
+ :label: Surface Roughness
+
+.. toctree::
+   :caption: Proportion of Vegetation
+   :name: Proportion of Vegetation title
+
+**Proportion of Vegetation :** [4]_
+
+.. math::
+ P_{v}=\left[\frac{NDVI-NDVI_{s}}{NDVI_{v}-NDVI_{s}}\right]^{2}
+ :label: Proportion of Vegetation
+
+.. toctree::
+   :caption: Normalized Difference Vegetation Index (NDVI)
+   :name: NDVI title
+
+**Normalized Difference Vegetation Index (NDVI) :** [4]_
+
+.. math::
+ NDVI=\frac{N I R-R}{N I R+R}
+ :label: NDVI
+
+.. toctree::
+   :caption: Total Water Vapor Content
+   :name: Total Water Vapor Content title
+
+**Total Water Vapor Content :** [4]_
+
+.. math::
+ \omega=\omega(0) / R_{\omega}(0)
+ :label: Total water vapor content
+
+.. math::
+ \omega(0)=H \times E \times a / 1000
+ :label: Water vapor content
+
+.. toctree::
+   :caption: Temperature Conversion
+   :name: Temperature Conversion title
+
+**Temperature Conversion :** [6]_
+
+.. math::
+ \mathrm{K} \text { to }^{\circ} \mathrm{C}=0 \mathrm{K}-273.15
+ :label: K to C
+
+.. math::
+ ^{\circ} \mathrm{C} \text { to } \mathrm{K}=0^{\circ} \mathrm{C}+273.15
+ :label: C to K
+
+.. math::
+ ^{\circ} \mathrm{C} \text { to }^{\circ} \mathrm{F}=\left(0^{\circ} \mathrm{C} \times 9 / 5\right)+32
+ :label: C to F
+
+Value
+--------------------------
+
+.. toctree::
+   :caption: Table Emissivity Soil and Vegetation
+   :name: Table Emissivity Soil and Vegetation title
+
+**Table Emissivity Soil and Vegetation :** [4]_
+
+.. csv-table:: 
+   :widths: 1, 1, 1
+   :stub-columns: 1
+
+   Bands,:math:`\boldsymbol{\varepsilon_{s \lambda i}}`,:math:`\boldsymbol{\varepsilon_{v \lambda i}}`
+   Band TIR-1,0.964,0.984
+   Band TIR-2,0.970,0.980
+
+.. toctree::
+   :caption: Table Regression Coefficients
+   :name: Table Regression Coefficients title
+
+**Table Regression Coefficients :** [1]_
+
+.. csv-table:: 
+   :widths: 1,1,1,1,1
+   :stub-columns: 1
+
+   T Range,:math:`\boldsymbol{a_{10}}`,:math:`\boldsymbol{b_{10}}`,:math:`\boldsymbol{a_{11}}`,:math:`\boldsymbol{b_{11}}`
+   0 - 30,-59.1391,0.4213,-63.3921,0.4565
+   0 - 40,-60.9196,0.4276,-65.2240,0.4629
+   10 - 10,-62.8065,0.4338,-67.1728,0.4694
+   10 - 50,-64.6081,0.4399,-69.0215,0.4756
+
+.. toctree::
+   :caption: Table Ratio Water Vapor Content
+   :name: Table Ratio Water Vapor Content title
+
+**Table Ratio Water Vapor Content for range value Total Water Vapor Content 0.5–3 g/cm**:math:`\boldsymbol{^2 }` **:** [2]_
+
+.. csv-table:: 
+   :widths: 1,1
+   :stub-columns: 1
+
+   T Range, :math:`\boldsymbol{R_{\omega}(0)}`
+   Tropical atmosphere,0.6834
+   Sub-tropical summer,0.6819
+   Sub-tropical winter,0.6593
+   Mid-latitude summer,0.6834
+   Mid-latitude winter,0.6356
+
+.. toctree::
+   :caption: Table Geometrical Factor
+   :name: Table Geometrical Factor title
+
+**Table Geometrical Factor :** [4]_
+
+.. csv-table:: 
+   :widths: 1,1
+   :stub-columns: 1
+
+   Description, :math:`\boldsymbol{F^{\prime}}` **Default Value**
+   Geometrical Factor,0.5
+
+.. toctree::
+   :caption: Table NDVI Soil and Vegetation
+   :name: Table NDVI Soil and Vegetation title
+
+**Table NDVI Soil and Vegetation :** [4]_
+
+.. csv-table:: 
+   :widths: 1,1
+   :stub-columns: 1
+
+   Description,:math:`\boldsymbol{NDVI_{s}}` **and** :math:`\boldsymbol{NDVI_{v}}` **Default Value**
+   NDVI Soil,0.2
+   NDVI Vegetation,0.5 (may be to low in some cases)
+
+.. toctree::
+   :caption: Table Saturation Mix Ratio and Air Density
+   :name: Table Saturation Mix Ratio and Air Density title
+
+**Table Saturation Mix Ratio and Air Density :** [2]_
+
+.. csv-table:: 
+   :widths: 1,1,1
+   :stub-columns: 1
+
+   :math:`\boldsymbol{T}` **Range(** :math:`\boldsymbol{^{\circ} \mathrm{C}}` **)**,:math:`\boldsymbol{E}` **(g/kg** :math:`\boldsymbol{^{-1}}` **)**,:math:`\boldsymbol{a}` **(kg/m** :math:`\boldsymbol{^{-3}}` **)**
+   45,66.33,1.11
+   40,49.81,1.13
+   35,37.25,1.15
+   30,27.69,1.17
+   25,20.44,1.18
+   20,14.95,1.21
+   15,10.83,1.23
+   10,7.76,1.25
+   5,5.50,1.27
+   0,3.84,1.29
+   -5,2.52,1.32
+   -10,1.63,1.34
+
+.. toctree::
+   :caption: Table band Red, NIR, TIR-1, and TIR-2 Landsat 8
+   :name: Table band Red, NIR, TIR-1, and TIR-2 Landsat 8 title
+
+**Table band Red, NIR, TIR-1, and TIR-2 Landsat 8 :** [5]_
+
+.. csv-table:: 
+   :widths: 1,1
+   :stub-columns: 1
+
+   Bands,**Bands Landsat 8**
+   Band Red,Band 4
+   Band NIR,Band 5
+   Band TIR-1,Band 10
+   Band TIR-2,Band 11
+
+.. toctree::
+   :caption: Table Metadata Landsat 8
+   :name: Table Metadata Landsat 8 title
+
+**Table Metadata Landsat 8 :**
+
+.. csv-table:: 
+   :widths: 1,1
+   :stub-columns: 1
+
+   Metadata,**Value Landsat 8**
+   :math:`\boldsymbol{\boldsymbol{K}_{1}}` (TIR-1),774.8853
+   :math:`\boldsymbol{\boldsymbol{K}_{1}}` (TIR-2),480.8883
+   :math:`\boldsymbol{\boldsymbol{K}_{2}}` (TIR-1),1321.0789
+   :math:`\boldsymbol{\boldsymbol{K}_{2}}` (TIR-2),1201.1442
+   :math:`\boldsymbol{\boldsymbol{M}_{L}}` (TIR-1 and TIR-2),0.0003342
+   :math:`\boldsymbol{\boldsymbol{A}_{L}}` (TIR-1 and TIR-2),0.1
+
+
+References
+======================
+.. [1] Qin, et al. (2014) ‘Derivation of land surface temperature for landsat-8 TIRS using a split window algorithm’, Sensors (Switzerland), 14(4), pp. 5768–5780. doi: 10.3390/s140405768.
+
+.. [2] Qin, et al. (2015) ‘An improved mono-window algorithm for land surface temperature retrieval from landsat 8 thermal infrared sensor data’, Remote Sensing, 7(4), pp. 4268–4289. doi: 10.3390/rs70404268.
+
+.. [3] USGS. (2019) ‘Landsat 8 (L8) Data Users Handbook’.
+
+.. [4] Tsou, J. et al. (2017) ‘Urban Heat Island Assessment Using the Landsat 8 Data: A Case Study in Shenzhen and Hong Kong’, Urban Science, 1(1), p. 10. doi: 10.3390/urbansci1010010.
+
+.. [5] https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/BandpassesL7vL8_Jul20131.pdf
+
+.. [6] https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature
