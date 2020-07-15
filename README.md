@@ -1,8 +1,3 @@
-.. QGIS Plugin Builder documentation master file, created by
-   sphinx-quickstart on Sat Jan  5 14:17:19 2013.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Plugin QGIS SPT
 ===============================================
 ![Logo](https://user-images.githubusercontent.com/58234878/87500090-e26d8600-c685-11ea-849a-00fbeadfbf26.png)
