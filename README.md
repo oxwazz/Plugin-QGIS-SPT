@@ -64,9 +64,9 @@ This is a log generated from calculating LST.
 
 
 ## References
-1. [Paper - Derivation of land surface temperature for landsat-8 TIRS using a split window algorithm](https://www.mdpi.com/1424-8220/14/4/5768/pdf) "Qin, et al. (2014) ‘Derivation of land surface temperature for landsat-8 TIRS using a split window algorithm’, Sensors (Switzerland), 14(4), pp. 5768–5780. doi: 10.3390/s140405768."
-2. Qin, et al. (2015) ‘An improved mono-window algorithm for land surface temperature retrieval from landsat 8 thermal infrared sensor data’, Remote Sensing, 7(4), pp. 4268–4289. doi: 10.3390/rs70404268.
-3. USGS. (2019) ‘Landsat 8 (L8) Data Users Handbook’.
-4. Tsou, J. et al. (2017) ‘Urban Heat Island Assessment Using the Landsat 8 Data: A Case Study in Shenzhen and Hong Kong’, Urban Science, 1(1), p. 10. doi: 10.3390/urbansci1010010.
-5. [NASA Landsat - Band Passes Landsat 7 and Landsat 8](https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/BandpassesL7vL8_Jul20131.pdf)
-6. [Wikipedia - Conversion of units of temperature](https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature)
+1. [Paper - Qin, et al. (2014) - Derivation of Land Surface Temperature for Landsat-8 TIRS Using a Split Window Algorithm](https://www.mdpi.com/1424-8220/14/4/5768/pdf)
+2. [Paper - Qin, et al. (2015) - An Improved Mono-Window Algorithm for Land Surface Temperature Retrieval from Landsat 8 Thermal Infrared Sensor Data](https://www.mdpi.com/2072-4292/7/4/4268)
+3. [Book - Landsat 8 Data Users Handbook](https://www.usgs.gov/core-science-systems/nli/landsat/landsat-8-data-users-handbook)
+4. [Paper - Tsou, et al. (2017) - Urban Heat Island Assessment Using the Landsat 8 Data: A Case Study in Shenzhen and Hong Kong](https://www.mdpi.com/2413-8851/1/1/10)
+5. [Web - NASA Landsat - Band Passes Landsat 7 and Landsat 8](https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/BandpassesL7vL8_Jul20131.pdf)
+6. [Web - Wikipedia - Conversion of units of temperature](https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature)
