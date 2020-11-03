@@ -1,5 +1,6 @@
-# Plugin QGIS SPT
 ![Logo](https://user-images.githubusercontent.com/58234878/87500090-e26d8600-c685-11ea-849a-00fbeadfbf26.png)
+
+# Plugin QGIS SPT
 
 ## Concepts
 Plugin QGIS SPT provides you for estimating land surface temperature (LST) with split-window algorithm (SWA) Qin for Landsat 8.
