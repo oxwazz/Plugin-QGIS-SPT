@@ -20,7 +20,7 @@ The steps to using Plugin QGIS SPT are fairly simple:
 
 ![Parameter](https://user-images.githubusercontent.com/58234878/87500100-e699a380-c685-11ea-9189-ea4580111bcb.png)
 
-- `Data Satellite` is data with values obtained from the metadata used for calculate LST.
+- __Data Satellite__ is data with values obtained from the metadata used for calculate LST.
 - **Output Temp.** is to determine the external value of the resulting temperature.
 - **Range Temp.** is the average value of air temperature in the area.
 - **Tot. Water Vapor** is the value of total water vapor content.
