@@ -69,4 +69,4 @@ This is a log generated from calculating LST.
 3. [Book - Landsat 8 Data Users Handbook](https://www.usgs.gov/core-science-systems/nli/landsat/landsat-8-data-users-handbook)
 4. [Paper - Tsou, et al. (2017) - Urban Heat Island Assessment Using the Landsat 8 Data: A Case Study in Shenzhen and Hong Kong](https://www.mdpi.com/2413-8851/1/1/10)
 5. [Web - NASA Landsat - Band Passes Landsat 7 and Landsat 8](https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/BandpassesL7vL8_Jul20131.pdf)
-6. [Web - Wikipedia - Conversion of units of temperature](https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature)
+6. [Web - Wikipedia - Conversion of Units of Temperature](https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature)
