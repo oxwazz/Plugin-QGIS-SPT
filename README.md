@@ -3,11 +3,11 @@
 # Plugin QGIS SPT
 
 ## Concepts
-Plugin QGIS SPT provides you for estimating Land Surface Temperature (LST) with [Split-Window Algorithm (SWA)][1] for Landsat 8.
+[Plugin QGIS SPT][7] provides you for estimating Land Surface Temperature (LST) with [Split-Window Algorithm (SWA)][1] for Landsat 8.
 
-The steps to using Plugin QGIS SPT are fairly simple:
+The steps to using [Plugin QGIS SPT][7] are fairly simple:
 
-1. Open the plugin QGIS SPT from within QGIS.
+1. Open the [plugin QGIS SPT][7] from within [QGIS][8].
 2. Fill out the required value and input data band obtained from landsat 8 satellite imagery.
 3. If you have the different value, you can change the default value from advance setting.
 4. Calculate LST.
@@ -79,3 +79,6 @@ This is a log generated from calculating LST.
 [4]: https://www.mdpi.com/2413-8851/1/1/10 "Paper - Tsou, et al. (2017) - Urban Heat Island Assessment Using the Landsat 8 Data: A Case Study in Shenzhen and Hong Kong"
 [5]: https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/BandpassesL7vL8_Jul20131.pdf "Web - NASA Landsat - Band Passes Landsat 7 and Landsat 8"
 [6]: https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature "Web - Wikipedia - Conversion of Units of Temperature"
+
+[7]: https://plugins.qgis.org/plugins/qgis_spt/ "SPT - Plugin QGIS"
+[8]: https://qgis.org/en/site/ "QGIS - Desktop Application"
