@@ -11,8 +11,8 @@ The steps to using are fairly simple:
 3. If you have the different value, you can change the default value from advance setting.
 4. Calculate LST.
 
-**Link**: [Plugin QGIS SPT][7]
-**Other**: [Video Comparison Between Plugin QGIS SPT and Raster Calculator (Manual)][9]
+* **Link**: [Plugin QGIS SPT][7]
+* **Other**: [Video Comparison Between Plugin QGIS SPT and Raster Calculator (Manual)][9]
 
 ## Running Plugin QGIS SPT
 
