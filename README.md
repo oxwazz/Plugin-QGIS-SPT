@@ -3,7 +3,7 @@
 # Plugin QGIS SPT
 
 ## Concepts
-Plugin QGIS SPT provides you for estimating land surface temperature (LST) with split-window algorithm (SWA) Qin for Landsat 8.
+Plugin QGIS SPT provides you for estimating Land Surface Temperature (LST) with [Split-Window Algorithm (SWA)][1] for Landsat 8.
 
 The steps to using Plugin QGIS SPT are fairly simple:
 
@@ -65,9 +65,17 @@ This is a log generated from calculating LST.
 
 
 ## References
-1. [Paper - Qin, et al. (2014) - Derivation of Land Surface Temperature for Landsat-8 TIRS Using a Split Window Algorithm](https://www.mdpi.com/1424-8220/14/4/5768/pdf)
-2. [Paper - Qin, et al. (2015) - An Improved Mono-Window Algorithm for Land Surface Temperature Retrieval from Landsat 8 Thermal Infrared Sensor Data](https://www.mdpi.com/2072-4292/7/4/4268)
-3. [Book - Landsat 8 Data Users Handbook](https://www.usgs.gov/core-science-systems/nli/landsat/landsat-8-data-users-handbook)
-4. [Paper - Tsou, et al. (2017) - Urban Heat Island Assessment Using the Landsat 8 Data: A Case Study in Shenzhen and Hong Kong](https://www.mdpi.com/2413-8851/1/1/10)
-5. [Web - NASA Landsat - Band Passes Landsat 7 and Landsat 8](https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/BandpassesL7vL8_Jul20131.pdf)
-6. [Web - Wikipedia - Conversion of Units of Temperature](https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature)
+1. [Paper - Qin, et al. (2014) - Derivation of Land Surface Temperature for Landsat-8 TIRS Using a Split Window Algorithm][1]
+2. [Paper - Qin, et al. (2015) - An Improved Mono-Window Algorithm for Land Surface Temperature Retrieval from Landsat 8 Thermal Infrared Sensor Data][2]
+3. [Book - Landsat 8 Data Users Handbook][3]
+4. [Paper - Tsou, et al. (2017) - Urban Heat Island Assessment Using the Landsat 8 Data: A Case Study in Shenzhen and Hong Kong][4]
+5. [Web - NASA Landsat - Band Passes Landsat 7 and Landsat 8][5]
+6. [Web - Wikipedia - Conversion of Units of Temperature][6]
+
+<!-- References -->
+[1]: https://www.mdpi.com/1424-8220/14/4/5768/pdf "Paper - Qin, et al. (2014) - Derivation of Land Surface Temperature for Landsat-8 TIRS Using a Split Window Algorithm"
+[2]: https://www.mdpi.com/2072-4292/7/4/4268 "Paper - Qin, et al. (2015) - An Improved Mono-Window Algorithm for Land Surface Temperature Retrieval from Landsat 8 Thermal Infrared Sensor Data"
+[3]: https://www.usgs.gov/core-science-systems/nli/landsat/landsat-8-data-users-handbook "Book - Landsat 8 Data Users Handbook"
+[4]: https://www.mdpi.com/2413-8851/1/1/10 "Paper - Tsou, et al. (2017) - Urban Heat Island Assessment Using the Landsat 8 Data: A Case Study in Shenzhen and Hong Kong"
+[5]: https://landsat.gsfc.nasa.gov/wp-content/uploads/2013/01/BandpassesL7vL8_Jul20131.pdf "Web - NASA Landsat - Band Passes Landsat 7 and Landsat 8"
+[6]: https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature "Web - Wikipedia - Conversion of Units of Temperature"
